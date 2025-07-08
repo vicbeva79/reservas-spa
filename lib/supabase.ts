@@ -13,10 +13,9 @@ export interface Reserva {
 }
 
 /* ---------- 🔑 TUS CLAVES REALES DE SUPABASE ---------- */
-// @ts-ignore
-const supabaseUrl = typeof window === 'undefined' && typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SUPABASE_URL ? process.env.NEXT_PUBLIC_SUPABASE_URL : ''
-// @ts-ignore
-const supabaseKey = typeof window === 'undefined' && typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SUPABASE_KEY ? process.env.NEXT_PUBLIC_SUPABASE_KEY : ''
+const supabaseUrl = "https://knkududmctziydarsxmk.supabase.co"
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtua3VkdWRtY3R6aXlkYXJzeG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg4NTgyNzQsImV4cCI6MjA2NDQzNDI3NH0.BQMSAPrhffs7CjIaaBnSTBTCFvu6usY-XLdQLIAGP7Q"
 
 // Verificación simplificada - solo verificar que las claves existen y tienen formato correcto
 const SUPABASE_OK = Boolean(
@@ -172,7 +171,3 @@ export const reservasService = {
 }
 
 export const origenDatos = SUPABASE_OK ? "supabase" : "local"
-
-// Si ves errores de types, ejecuta:
-// npm install --save-dev @types/node
-// npm install @supabase/supabase-js dexie

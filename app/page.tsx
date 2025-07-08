@@ -395,20 +395,18 @@ export default function ReservasApp() {
               <CardDescription>Elige el día para tu cita</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="w-full max-w-md mx-auto">
-                <Calendar
-                  mode="single"
-                  selected={fechaSeleccionada}
-                  onSelect={(date) => {
-                    setFechaSeleccionada(date)
-                    setHorarioSeleccionado("")
-                    setMostrandoFormulario(false)
-                  }}
-                  disabled={(date) => date < new Date() || date.getDay() === 0 || date.getDay() === 6}
-                  locale={es}
-                  className="rounded-md border w-full"
-                />
-              </div>
+              <Calendar
+                mode="single"
+                selected={fechaSeleccionada}
+                onSelect={(date) => {
+                  setFechaSeleccionada(date)
+                  setHorarioSeleccionado("")
+                  setMostrandoFormulario(false)
+                }}
+                disabled={(date) => date < new Date() || date.getDay() === 0 || date.getDay() === 6}
+                locale={es}
+                className="rounded-md border"
+              />
             </CardContent>
           </Card>
 
@@ -434,7 +432,7 @@ export default function ReservasApp() {
                   <p className="text-gray-500">No hay horarios disponibles para esta fecha</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 max-h-64 overflow-y-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto">
                   {horariosDisponibles.map((hora) => (
                     <Button
                       key={hora}

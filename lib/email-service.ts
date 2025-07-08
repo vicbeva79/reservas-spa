@@ -1,6 +1,5 @@
 // -------- 🔑 NUEVA API KEY DE RESEND --------
-// @ts-ignore
-export const RESEND_API_KEY = typeof window === 'undefined' && typeof process !== 'undefined' && process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY : ''
+export const RESEND_API_KEY = "re_NbaWWpQC_LPgTDPujxXrGpurYzjtGozF7"
 
 console.log("🔑 RESEND API KEY configurada:", RESEND_API_KEY.substring(0, 10) + "...")
 
