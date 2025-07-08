@@ -707,7 +707,7 @@ export default function ReservasApp() {
                 <div className="text-sm text-amber-800">
                   <p className="font-medium mb-1">ℹ️ Sistema de Reservas Inteligente</p>
                   <p>
-                  Válido para los miembros de los equipos de fútbol sala de la Falla PlaÇa Espanyoleto. La reserva  <strong>NO está garantizada</strong> hasta ser confirmada por el personal de Acuaria
+                  Válido para los miembros de los equipos de fútbol sala de la Falla Plaça Espanyoleto. La reserva  <strong>NO está garantizada</strong> hasta ser confirmada por el personal de Acuaria
                   </p>
                 </div>
               </div>
