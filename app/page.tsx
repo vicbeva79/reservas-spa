@@ -707,8 +707,7 @@ export default function ReservasApp() {
                 <div className="text-sm text-amber-800">
                   <p className="font-medium mb-1">ℹ️ Sistema de Reservas Inteligente</p>
                   <p>
-                    Cada cita bloquea <strong>7 slots</strong> (1h 45min total): 45min antes para preparación/limpieza +
-                    60min de sesión. Esto garantiza la máxima higiene y calidad del servicio.
+                  Válido para los miembros de los equipos de fútbol sala de la Falla Espanyoleto. La reserva  <strong>no está garantizada</strong> hasta ser confirmada por el personal de Acuaria
                   </p>
                 </div>
               </div>
