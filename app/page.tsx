@@ -64,6 +64,9 @@ export default function ReservasApp() {
   const [editandoReserva, setEditandoReserva] = useState<number | null>(null)
   const [datosEdicion, setDatosEdicion] = useState<Partial<Reserva>>({})
 
+  // Estado para mostrar el listado de todas las citas
+  const [mostrarListado, setMostrarListado] = useState(false);
+
   // Cargar reservas al iniciar
   useEffect(() => {
     cargarReservas()
@@ -332,6 +335,17 @@ export default function ReservasApp() {
             <div className="w-full max-w-md">
               <TestEmailButton />
             </div>
+          )}
+
+          {/* Botón para ver todas las citas - solo admin */}
+          {modoAdministrador && (
+            <Button
+              variant="outline"
+              className="mb-4"
+              onClick={() => setMostrarListado((v) => !v)}
+            >
+              {mostrarListado ? "Ocultar listado de citas" : "Ver todas las citas"}
+            </Button>
           )}
         </div>
 
@@ -710,6 +724,46 @@ export default function ReservasApp() {
                   Válido para los miembros de los equipos de fútbol sala de la Falla Plaça Espanyoleto. La reserva  <strong>NO está garantizada</strong> hasta ser confirmada por el personal de Acuaria
                   </p>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Listado de todas las citas - solo admin */}
+        {modoAdministrador && mostrarListado && (
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Listado de todas las citas</CardTitle>
+              <CardDescription>
+                Total: {reservas.length} citas
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-sm">
+                  <thead>
+                    <tr>
+                      <th className="px-2 py-1 text-left">Fecha</th>
+                      <th className="px-2 py-1 text-left">Hora</th>
+                      <th className="px-2 py-1 text-left">Nombre</th>
+                      <th className="px-2 py-1 text-left">Teléfono</th>
+                      <th className="px-2 py-1 text-left">Personas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {reservas
+                      .sort((a, b) => a.fecha.localeCompare(b.fecha) || a.hora.localeCompare(b.hora))
+                      .map((reserva) => (
+                        <tr key={reserva.id}>
+                          <td className="px-2 py-1">{reserva.fecha}</td>
+                          <td className="px-2 py-1">{reserva.hora}</td>
+                          <td className="px-2 py-1">{reserva.nombre_cliente}</td>
+                          <td className="px-2 py-1">{reserva.telefono}</td>
+                          <td className="px-2 py-1">{reserva.numero_personas}</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
               </div>
             </CardContent>
           </Card>
